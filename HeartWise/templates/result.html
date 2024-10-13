@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 80%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6d3344;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #6d3344, #be2c6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            font-size: 18px;
+            color: #333;
+            background: linear-gradient(to right, #ffffff, #f0f0f0);
+        }
+
+        .at-risk {
+            color: #ffffff;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+            background: linear-gradient(to right, #b70a3e, #6d3344);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .not-at-risk {
+            color: #ffffff;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+            background: linear-gradient(to right, #45a049, #6db65d);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <ul>
+            {% for model, prediction in predictions.items() %}
+                <li>{{ model }}: {{ prediction }}</li>
+            {% endfor %}
+        </ul>
+        <p class="{% if at_risk %}at-risk{% else %}not-at-risk{% endif %}">
+            At Risk of Heart Disease: {% if at_risk %}Yes{% else %}No{% endif %}
+        </p>
+    </div>
+</body>
+</html>

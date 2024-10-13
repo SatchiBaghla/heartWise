@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: linear-gradient(to bottom right, #f0f0f0, #dcdcdc);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #6d3344;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #6d3344;
+            display: block;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(to right, #6d3344, #be2c6b);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #be2c6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <form method="POST" action="/predict">
+            {{ form.hidden_tag() }}
+            <div class="form-section">
+                {{ form.age.label }}
+                {{ form.age }}
+            </div>
+            <div class="form-section">
+                {{ form.sex.label }}
+                {{ form.sex }}
+            </div>
+            <div class="form-section">
+                {{ form.cp.label }}
+                {{ form.cp }}
+            </div>
+            <div class="form-section">
+                {{ form.resting_bp.label }}
+                {{ form.resting_bp }}
+            </div>
+            <div class="form-section">
+                {{ form.serum_cholesterol.label }}
+                {{ form.serum_cholesterol }}
+            </div>
+            <div class="form-section">
+                {{ form.fasting_blood_sugar.label }}
+                {{ form.fasting_blood_sugar }}
+            </div>
+            <div class="form-section">
+                {{ form.resting_ecg.label }}
+                {{ form.resting_ecg }}
+            </div>
+            <div class="form-section">
+                {{ form.max_heart_rate.label }}
+                {{ form.max_heart_rate }}
+            </div>
+            <div class="form-section">
+                {{ form.exercise_induced_angina.label }}
+                {{ form.exercise_induced_angina }}
+            </div>
+            <div class="form-section">
+                {{ form.st_depression.label }}
+                {{ form.st_depression }}
+            </div>
+            <div class="form-section">
+                {{ form.st_slope.label }}
+                {{ form.st_slope }}
+            </div>
+            <div class="form-section">
+                {{ form.number_of_vessels.label }}
+                {{ form.number_of_vessels }}
+            </div>
+            <div class="form-section">
+                {{ form.thallium_scan_results.label }}
+                {{ form.thallium_scan_results }}
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

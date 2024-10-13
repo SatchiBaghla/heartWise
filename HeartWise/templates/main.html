@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumping Heart</title>
+    <style>
+ body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+       
+    }
+
+        header {
+          background:  #d6054f;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+        background:  #d6054f; /* Updated navbar background gradient */
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+    }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin-right: 20px;
+        }
+
+        .navbar li:last-child {
+            margin-right: 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .heart-container {
+            position: absolute;
+            left: 10%; /* Adjust the left position as needed */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .heart-container img {
+            width: 400px; /* Adjust the size of the heart as needed */
+            height: auto;
+            animation: thump 1s infinite;
+        }
+
+        .square {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Adjust the padding as needed */
+            width: auto;
+            max-width: 60%; /* Maximum width of the square */
+            height: auto; /* Adjust height automatically based on content */
+            text-align: justify; /* Justify the text content */
+            transition: opacity 2.5s ease; /* Add transition effect */
+            position: absolute;
+            left: 40%; /* Adjust the left position as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 10%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box-shadow for depth effect */
+        }
+
+        .square p {
+            margin: 0; /* Remove default margin */
+            color: #333; /* Specify font color */
+        }
+
+        /* Show the square */
+        .square.visible {
+            opacity: 1;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #a21751; /* Matching color scheme */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #bc113c; /* Darker shade on hover */
+        }
+
+        footer {
+            background: linear-gradient(to right, #a21751, #bc113c);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @keyframes thump {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="navbar-brand">HeartWise</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="heart-container">
+        <img class="heart" src="{{ url_for('static', filename='heart.png') }}" alt="Heart Image">
+    </div>
+    
+
+    <div class="square visible">
+      <p>
+          Welcome to HeartWise: Your Heart Disease Prediction Platform
+  
+          Your trusted platform for heart disease prediction and prevention. Our cutting-edge technology combines
+          the power of machine learning with your health data to provide personalized insights into your heart
+          health.
+  
+          At HeartWise, we understand the importance of early detection and proactive measures in preventing heart
+          disease. By inputting your health metrics, medical history, and lifestyle factors, you can gain valuable
+          insights into your risk of heart disease and take proactive steps towards a healthier life.
+  
+          Your privacy and data security are our utmost priorities. Rest assured that all information provided is
+          kept confidential and secure.
+  
+          Take control of your heart health today with HeartWise. Get started Today
+          <form action="/predict" method="post">
+            <button class="button" style="display: block; margin: 0 auto; margin-top: 2%; background:  #7BC4F4;" type="submit">Get Started</button>
+        </form>
+          
+
+
+      </p>
+  </div>
+  
+</body>
+
+</html>
